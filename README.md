@@ -8,3 +8,4 @@ Checking out some ORM concepts using Python.
 - `conda activate alchemy`
 - `conda install python`
 - `conda install sqlalchemy`
+- `conda install psycopg2`
