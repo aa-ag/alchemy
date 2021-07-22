@@ -9,3 +9,5 @@ from sqlalchemy.orm import relationship, backref
 engine = create_engine('sqlite:///student.db', echo=True)
 
 Base = declarative_base()
+
+############------------ CLASSES ------------############
