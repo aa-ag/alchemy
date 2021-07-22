@@ -2,6 +2,8 @@
 
 Checking out some ORM concepts using Python. 
 
+For now, via (SQLAlchemy)[https://docs.sqlalchemy.org/en/14/]
+
 ### env
 
 - `conda create -n alchemy`
