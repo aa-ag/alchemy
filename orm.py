@@ -1,21 +1,11 @@
 ############------------ IMPORTS ------------############
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, ForeignKey, Column, 
+from sqlalchemy import Date, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, String, Integer, Date, Boolean, Numeric
+from sqlalchemy.orm import relationship, backref
 
 
 ############------------ GLOBAL VARIABLE(S) ------------############
-engine = create_engine('postgresql://usr:pass@localhost:5432/sqlalchemy')
-
-Session = sessionmaker(bind=engine)
+engine = create_engine('sqlite:///student.db', echo=True)
 
 Base = declarative_base()
-
-class Product(Base):
-    __tablename__ = 'products'
-    id=Column(Integer, primary_key=True)
-    title=Column('title', String(32))
-    in_stock=Column('in_stock', Boolean)
-    quantity=Column('quantity', Integer)
-    price=Column('price', Numeric)
