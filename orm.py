@@ -1,9 +1,8 @@
 ############------------ IMPORTS ------------############
-from sqlalchemy import create_engine, ForeignKey, Column, 
+from sqlalchemy import create_engine, ForeignKey, Column
 from sqlalchemy import Date, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
-from sqlalchemy.sql.functions import user
 
 
 ############------------ GLOBAL VARIABLE(S) ------------############
@@ -27,3 +26,4 @@ class Student(Base):
         self.lastname = lastname
         self.school = school
 
+Base.metadata.create_all(engine)
