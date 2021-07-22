@@ -12,4 +12,15 @@ engine = create_engine('sqlite:///student.db', echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-############------------ CLASSES ------------############
+# create objects
+user = Student("usernameX", "Afirstname", "Alastname", "SchoolX")
+session.add(user)
+
+user = Student("usernameY", "Bfirstname", "Alastname", "SchoolY")
+session.add(user)
+
+user = Student("usernameZ", "Cfirstname", "Clastname", "SchoolZ")
+session.add(user)
+
+# commit additions to the db
+session.commit()
