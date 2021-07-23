@@ -1,14 +1,15 @@
 ############------------ IMPORTS ------------############
-from sqlalchemy import create_engine, ForeignKey, Column
-from sqlalchemy import Date, Integer, String
+from sqlalchemy import create_engine, Column
+from sqlalchemy import Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.types import TypeDecorator, Unicode
 
 
 ############------------ GLOBAL VARIABLE(S) ------------############
-engine = create_engine('sqlite:///scuderias.db', echo=True)
+engine = create_engine('sqlite:///scuderias.db?charset=utf8', echo=True)
 
 Base = declarative_base()
+
 
 ############------------ CLASSES ------------############
 class Scuderias(Base):
