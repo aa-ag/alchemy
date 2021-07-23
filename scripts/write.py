@@ -6,21 +6,15 @@ from orm import *
 
 
 ############------------ GLOBAL VARIABLE(S) ------------############
-engine = create_engine('sqlite:///student.db', echo=True)
+engine = create_engine('sqlite:///scuderias.db', echo=True)
 
 # create a session
 Session = sessionmaker(bind=engine)
 session = Session()
 
 # create objects
-user = Student("usernameX", "Afirstname", "Alastname", "SchoolX")
-session.add(user)
-
-user = Student("usernameY", "Bfirstname", "Alastname", "SchoolY")
-session.add(user)
-
-user = Student("usernameZ", "Cfirstname", "Clastname", "SchoolZ")
-session.add(user)
+scuderia = Scuderias("Red Bull", "Christian", "Horner", "Max", "Verstappen", "Checo", "Perez", "2013")
+session.add(scuderia)
 
 # commit additions to the db
 session.commit()
