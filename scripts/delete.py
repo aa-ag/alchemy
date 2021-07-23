@@ -17,9 +17,10 @@ session = Session()
 def delete_from_db():
     global session
 
-    last_added_record = [i.scuderias_name for i in session.query(Scuderias).all()]
-    
-    print(last_added_record)
+    for record in session.query(Scuderias).order_by(Scuderias.id):
+        session.delete(record)
+
+    session.commit()
 
 
 
