@@ -14,15 +14,15 @@ Base = declarative_base()
 class Scuderias(Base):
     __tablename__ = "scuderias"
 
-    id = Column(Integer, primary_key=True)
-    scuderias_name = Column(String, max_lenght=80)
-    principals_firstname = Column(String, max_lenght=20)
-    principals_lastname = Column(String, max_lenght=20)
-    driver1_firstname = Column(String, max_lenght=20)
-    driver1_lastname = Column(String, max_lenght=20)
-    driver2_firstname = Column(String, max_lenght=20)
-    driver2_lastname = Column(String, max_lenght=20)
-    lastchampionship = Column(Date)
+    id = Column(Integer, primary_key=True, nullable=False)
+    scuderias_name = Column(String, max_lenght=80, nullable=False)
+    principals_firstname = Column(String, max_lenght=20, nullable=False)
+    principals_lastname = Column(String, max_lenght=20, nullable=False)
+    driver1_firstname = Column(String, max_lenght=20, nullable=False)
+    driver1_lastname = Column(String, max_lenght=20, nullable=False)
+    driver2_firstname = Column(String, max_lenght=20, nullable=False)
+    driver2_lastname = Column(String, max_lenght=20, nullable=False)
+    lastchampionship = Column(String, nullable=False)
 
     def __init__(self, scuderias_name, \
         principals_firstname, principals_lastname, \

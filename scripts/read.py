@@ -16,8 +16,8 @@ session = Session()
 def read_from_db():
     global session
 
-    for i in session.query(Student).order_by(Student.id):
-        print(i.firstname, i.lastname)
+    for i in session.query(Scuderias).order_by(Scuderias.id):
+        print(i.id)
 
 
 ############------------ DRIVER CODE ------------############
