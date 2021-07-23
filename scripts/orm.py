@@ -2,8 +2,7 @@
 from sqlalchemy import create_engine, Column
 from sqlalchemy import Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from Crypto.Hash import SHA256
-from settings import key
+
 
 ############------------ GLOBAL VARIABLE(S) ------------############
 engine = create_engine('sqlite:///scuderias.db', echo=True)
@@ -29,14 +28,14 @@ class Scuderias(Base):
         driver1_firstname, driver1_lastname, \
             driver2_firstname, driver2_lastname, \
                 lastchampionship):
-        self.scuderias_name = SHA256.new(scuderias_name.encode('utf-8'))
-        self.principals_firstname = SHA256.new(principals_firstname.encode('utf-8'))
-        self.principals_lastname = SHA256.new(principals_lastname.encode('utf-8'))
-        self.driver1_firstname = SHA256.new(driver1_firstname.encode('utf-8'))
-        self.driver1_lastname = SHA256.new(driver1_lastname.encode('utf-8'))
-        self.driver2_firstname = SHA256.new(driver2_firstname.encode('utf-8'))
-        self.driver2_lastname = SHA256.new(driver2_lastname.encode('utf-8'))
-        self.lastchampionship = SHA256.new(lastchampionship.encode('utf-8'))
+        self.scuderias_name = scuderias_name
+        self.principals_firstname = principals_firstname
+        self.principals_lastname = principals_lastname
+        self.driver1_firstname = driver1_firstname
+        self.driver1_lastname = driver1_lastname
+        self.driver2_firstname = driver2_firstname
+        self.driver2_lastname = driver2_lastname
+        self.lastchampionship = lastchampionship
 
 try:
     Base.metadata.create_all(engine)
