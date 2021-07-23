@@ -38,4 +38,8 @@ class Scuderias(Base):
         self.driver2_lastname = driver2_lastname
         self.lastchampionship = lastchampionship
 
-Base.metadata.create_all(engine)
+try:
+    Base.metadata.create_all(engine)
+    print("All set.")
+except:
+    print("Somthing went wrong.")
