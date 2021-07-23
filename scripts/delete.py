@@ -12,16 +12,16 @@ engine = create_engine('sqlite:///scuderias.db', echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-f = Fernet(b'058wzLgRW2gzockG4unFXMykToEmbjSLiGFksY5Mksk=')
-
 ############------------ FUNCTION(S) ------------############
-def read_from_db():
+def delete_from_db():
     global session
 
-    for record in session.query(Scuderias).order_by(Scuderias.id):
-        print(record.id, record.scuderias_name)
+    last_added_record = [i.scuderias_name for i in session.query(Scuderias).all()]
+    
+    print(last_added_record)
+
 
 
 ############------------ DRIVER CODE ------------############
 if __name__ == "__main__":
-    read_from_db()
+    delete_from_db()
