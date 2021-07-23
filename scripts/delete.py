@@ -17,13 +17,20 @@ session = Session()
 def delete_from_db():
     global session
 
-    for record in session.query(Scuderias).order_by(Scuderias.id):
-        session.delete(record)
+    # for record in session.query(Scuderias).order_by(Scuderias.id):
+    #     session.delete(record)
 
-    session.commit()
+    # session.commit()
+
+    try:
+        record = session.query(Scuderias).one()
+        print(record)
+    except:
+        print("DB is empty")
 
 
 
 ############------------ DRIVER CODE ------------############
 if __name__ == "__main__":
     delete_from_db()
+    # DB is empty
