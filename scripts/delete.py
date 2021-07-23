@@ -3,6 +3,7 @@ import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from orm import Scuderias, key
+from sqlalchemy import delete
 
 
 ############------------ GLOBAL VARIABLE(S) ------------############
