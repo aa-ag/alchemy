@@ -5,11 +5,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from cryptography.fernet import Fernet
 
 ############------------ GLOBAL VARIABLE(S) ------------############
-engine = create_engine('sqlite:///scuderias.db?charset=utf8', echo=True)
+engine = create_engine('sqlite:///scuderias.db', echo=True)
 
 Base = declarative_base()
 
 key = Fernet.generate_key()
+print(key)
 
 f = Fernet(key)
 
@@ -18,13 +19,13 @@ class Scuderias(Base):
     __tablename__ = "scuderias"
 
     id = Column(Integer, primary_key=True, nullable=False)
-    scuderias_name = Column(String, max_lenght=80, nullable=False)
-    principals_firstname = Column(String, max_lenght=20, nullable=False)
-    principals_lastname = Column(String, max_lenght=20, nullable=False)
-    driver1_firstname = Column(String, max_lenght=20, nullable=False)
-    driver1_lastname = Column(String, max_lenght=20, nullable=False)
-    driver2_firstname = Column(String, max_lenght=20, nullable=False)
-    driver2_lastname = Column(String, max_lenght=20, nullable=False)
+    scuderias_name = Column(String, nullable=False)
+    principals_firstname = Column(String, nullable=False)
+    principals_lastname = Column(String, nullable=False)
+    driver1_firstname = Column(String, nullable=False)
+    driver1_lastname = Column(String, nullable=False)
+    driver2_firstname = Column(String, nullable=False)
+    driver2_lastname = Column(String, nullable=False)
     lastchampionship = Column(String, nullable=False)
 
     def __init__(self, scuderias_name, \
