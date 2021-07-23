@@ -16,16 +16,20 @@ session = Session()
 def read_from_db():
     global session
 
-    for record in session.query(Scuderias).order_by(Scuderias.id):
-        print(record.id, \
-            record.scuderias_name, \
-            record.principals_firstname, \
-            record.principals_lastname, \
-            record.driver1_firstname, \
-            record.driver1_lastname, \
-            record.driver2_firstname, \
-            record.driver2_lastname
-        )
+    try:
+        for record in session.query(Scuderias).order_by(Scuderias.id):
+            print(record.id, \
+                record.scuderias_name, \
+                record.principals_firstname, \
+                record.principals_lastname, \
+                record.driver1_firstname, \
+                record.driver1_lastname, \
+                record.driver2_firstname, \
+                record.driver2_lastname, \
+                record.lastchampionship
+            )
+    except:
+        print("DB is empty")
 
 
 ############------------ DRIVER CODE ------------############

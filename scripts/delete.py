@@ -2,7 +2,7 @@
 import datetime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from orm import Scuderias, key
+from orm import Scuderias
 from sqlalchemy import delete
 
 
@@ -17,16 +17,16 @@ session = Session()
 def delete_from_db():
     global session
 
-    # for record in session.query(Scuderias).order_by(Scuderias.id):
-    #     session.delete(record)
+    for record in session.query(Scuderias).order_by(Scuderias.id):
+        session.delete(record)
 
-    # session.commit()
+    session.commit()
 
-    try:
-        record = session.query(Scuderias).one()
-        print(record)
-    except:
-        print("DB is empty")
+    # try:
+    #     record = session.query(Scuderias).one()
+    #     print(record)
+    # except:
+    #     print("DB is empty")
 
 
 
