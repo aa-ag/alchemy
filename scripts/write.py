@@ -13,8 +13,14 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # create objects
-scuderia = Scuderias("Red Bull", "Christian", "Horner", "Max", "Verstappen", "Checo", "Perez", "2013-12-01")
-session.add(scuderia)
+scuderia = Scuderias("Red Bull".encode('utf-8'), \
+    "Christian".encode('utf-8'), \
+        "Horner".encode('utf-8'), \
+            "Max".encode('utf-8'), \
+                "Verstappen".encode('utf-8'), \
+                    "Checo".encode('utf-8'), \
+                        "Perez".encode('utf-8'),\
+                             "2013-12-01".encode('utf-8'))
 
 # try:
 #     scuderia = Scuderias("Mercedes", "Toto", "Wolf", "Lews", "Hamilton")
