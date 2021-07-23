@@ -2,8 +2,7 @@
 from sqlalchemy import create_engine, Column
 from sqlalchemy import Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.types import TypeDecorator, Unicode
-
+import hashlib
 
 ############------------ GLOBAL VARIABLE(S) ------------############
 engine = create_engine('sqlite:///scuderias.db?charset=utf8', echo=True)
@@ -30,14 +29,14 @@ class Scuderias(Base):
         driver1_firstname, driver1_lastname, \
             driver2_firstname, driver2_lastname, \
                 lastchampionship):
-        self.scuderias_name = scuderias_name
-        self.principals_firstname = principals_firstname
-        self.principals_lastname = principals_lastname
-        self.driver1_firstname = driver1_firstname
-        self.driver1_lastname = driver1_lastname
-        self.driver2_firstname = driver2_firstname
-        self.driver2_lastname = driver2_lastname
-        self.lastchampionship = lastchampionship
+        self.scuderias_name = hashlib.sha3_256(scuderias_name).hexdigest()
+        self.principals_firstname = hashlib.sha3_256(principals_firstname).hexdigest()
+        self.principals_lastname = hashlib.sha3_256(principals_lastname).hexdigest()
+        self.driver1_firstname = hashlib.sha3_256(driver1_firstname).hexdigest()
+        self.driver1_lastname = hashlib.sha3_256(driver1_lastname).hexdigest()
+        self.driver2_firstname = hashlib.sha3_256(driver2_firstname).hexdigest()
+        self.driver2_lastname = hashlib.sha3_256(driver2_lastname).hexdigest()
+        self.lastchampionship = hashlib.sha3_256(lastchampionship).hexdigest()
 
 try:
     Base.metadata.create_all(engine)
